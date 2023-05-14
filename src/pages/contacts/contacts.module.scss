@@ -1,0 +1,45 @@
+@import "src/styles/variables";
+
+.title {
+  text-transform: uppercase;
+  color: $title_color;
+  margin: 0;
+  padding: 0;
+}
+
+.sub_title {
+  margin: 30px 0 0 0;
+  padding: 0;
+  color: $sub_title_color;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.list_wrapper {
+  margin-top: 50px;
+  .list_item {
+    cursor: pointer;
+    color: $link_color;
+    height: 30px;
+    margin: 10px 0;
+    padding: 10px;
+
+    border-radius: 8px;
+    border: 1px solid $border_light;
+
+    display: flex;
+    align-items: center;
+
+    transition: $transition_primary;
+
+    &:hover {
+      transform: scale(.95);
+    }
+
+    a {
+      text-transform: capitalize;
+      text-decoration: none;
+      color: $link_color;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "src/styles/variables";
+
+.footer_wrapper {
+  min-height: 80px;
+  //background: $background_gradient_end;
+  border-top: 1px solid $border_light;
+  text-align: center;
+  font-size: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+
+  .text {
+    text-transform: capitalize;
+    color: $text_white;
+  }
+}

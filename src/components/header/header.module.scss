@@ -1,0 +1,16 @@
+@import "src/styles/variables";
+
+.header_wrapper {
+  min-height: 80px;
+  background: $background_global;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+
+  border-bottom: 1px solid $border_light;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
