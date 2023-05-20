@@ -14,7 +14,7 @@ const Footer: FC = () => {
       <div className={styles.rowContainer}>
         <div className={styles.headerContainer}>
           <div className={styles.logo}>
-            <Image src="/assets/images/logo.svg" width={150} height={60} alt="logo"/>
+            <Image src="/assets/images/Logo.svg" width={150} height={60} alt="logo"/>
           </div>
           <div className={styles.links}>
             {navigation.map(({id, title, route, path}) => (
