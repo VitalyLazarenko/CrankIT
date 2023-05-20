@@ -1,0 +1,127 @@
+@import "src/styles/variables";
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    width: 100%;
+    height: calc(100% - 85px);
+    //background: #CACACA;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper {
+      width: 90%;
+      height: 80%;
+      background: $background_global;
+      box-shadow: 0 5px 20px rgba(226, 194, 45, 0.1);
+
+      display: flex;
+      align-items: center;
+
+      padding: 30px;
+
+      position: relative;
+      z-index: 10;
+
+      &:before {
+        content: "";
+        width: 5%;
+        height: 70%;
+
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        z-index: 10;
+
+        transform: translateY(-50%);
+        background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
+      }
+      &:after {
+        content: "";
+        width: 5%;
+        height: 70%;
+
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        z-index: 10;
+
+        transform: translateY(-50%);
+        background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
+      }
+
+      .rightContainer {
+        width: auto;
+        height: calc(100% - 60px);
+        min-width: 370px;
+        background: url("/assets/images/ContanctUs.png");
+        background-size: cover;
+
+        overflow: hidden;
+
+        padding: 30px;
+
+        .rightTitle {
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 35px;
+          line-height: 35px;
+          /* identical to box height */
+
+          letter-spacing: 0.02em;
+
+          color: #FFFFFF;
+        }
+        .text {
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 18px;
+          /* identical to box height */
+
+          letter-spacing: 0.02em;
+
+          color: #FFFFFF;
+
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        }
+      }
+      .leftContainer {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .formTitle {
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 50px;
+          line-height: 50px;
+          /* identical to box height */
+
+          text-align: center;
+          letter-spacing: 0.03em;
+
+          /* Main Color */
+          color: #E5BE2C;
+
+          margin: 0;
+        }
+        .topInputContainer {}
+        .messageContainer {color: white}
+        .checkboxContainer {}
+        .sendButton {color: white}
+      }
+    }
+  }
+}

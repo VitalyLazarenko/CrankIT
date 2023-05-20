@@ -1,19 +1,97 @@
 @import "src/styles/variables";
 
-.footer_wrapper {
-  min-height: 80px;
-  //background: $background_gradient_end;
-  border-top: 1px solid $border_light;
-  text-align: center;
-  font-size: 12px;
+@media screen and (min-width: 1440px) {
+  .footer_wrapper {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 80px;
+    text-align: center;
+    font-size: 12px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  .text {
-    text-transform: capitalize;
-    color: $text_white;
+    background: linear-gradient(180deg, $background_global 15%, #ffca02 147.08%);
+
+    .rowContainer {
+      width: 100%;
+      padding: 0 11.5%;
+      display: flex;
+      flex-direction: column;
+
+      .headerContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        margin-bottom: 5px;
+
+        .links {
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 16px;
+          /* identical to box height */
+
+          display: flex;
+          align-items: center;
+          text-align: right;
+
+          /* Main Color */
+          a {
+            //font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 16px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: right;
+
+            color: #FFFFFF;
+            text-decoration: none;
+            margin-right: 40px;
+          }
+        }
+
+        .logo {
+          padding: 0 10px;
+          background: $background_global;
+        }
+      }
+
+      .copyrightContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        border-top: solid 1px rgba(255,255,255, 0.3);
+
+        h3 {
+          margin: 7px 0;
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 12px;
+          /* identical to box height */
+
+          display: flex;
+          align-items: flex-end;
+          letter-spacing: 0.02em;
+
+          color: #FFFFFF;
+          opacity: 0.8;
+        }
+      }
+    }
   }
 }

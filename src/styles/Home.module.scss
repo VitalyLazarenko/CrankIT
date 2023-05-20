@@ -1,36 +1,27 @@
 @import "variables";
 
-.wrapper {
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@media screen and (min-width: 1440px) {
+  .mainScreenWrapper {
+    width: 100%;
+    height: 100%;
+    //background: #FAFA00;
 
-  .text_wrapper {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    h1, h2, h3 {
-      padding: 0;
-      margin: 0;
-    }
-
     .title {
-      font-weight: bold;
-      text-transform: capitalize;
-      color: $title_color;
-    }
-    .sub_title {
-      margin: 10px 0;
-      color: $sub_title_color;
-    }
-    .api {
-      margin: 20px 0 10px 0;
-      color: $text_white;
-      font-style: italic;
+      //font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 65px;
+      line-height: 65px;
+      /* identical to box height */
+
+      text-align: center;
+      letter-spacing: 0.05em;
+
+      color: #FFFFFF;
     }
   }
 }
