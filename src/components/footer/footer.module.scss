@@ -50,6 +50,21 @@
           align-items: center;
           text-align: right;
 
+          div {
+            margin-right: 40px;
+            cursor: pointer;
+
+            transition: all .4s ease;
+
+            &:last-child {
+              margin-right: 0;
+            }
+
+            &:hover {
+              transform: scale(.98);
+            }
+          }
+
           /* Main Color */
           a {
             //font-family: 'Josefin Sans';
@@ -63,9 +78,21 @@
             align-items: center;
             text-align: right;
 
+            opacity: .8;
+
             color: #FFFFFF;
             text-decoration: none;
             margin-right: 40px;
+
+            transition: all .4s ease;
+
+            &:hover {
+              transform: scale(.98);
+            }
+
+            &:last-child {
+              margin-right: 0;
+            }
           }
         }
 

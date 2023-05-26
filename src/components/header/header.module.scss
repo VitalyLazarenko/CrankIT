@@ -42,11 +42,33 @@
         text-align: right;
         letter-spacing: 0.02em;
 
+        div {
+          cursor: pointer;
+          transition: all .4s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
         /* Main Color */
         a {
           color: #E5BE2C;
           text-decoration: none;
           margin-right: 40px;
+          transition: all .4s ease;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          &.active {
+            opacity: .8;
+          }
         }
       }
     }

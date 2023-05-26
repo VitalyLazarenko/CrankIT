@@ -44,11 +44,11 @@ const Home: NextPage<IHomePage> = ({socials}) => {
         <div className={styles.mainScreenWrapper}>
           <h1 className={styles.title}>Sed cras integer mattis in id </h1>
         </div>
-        <Header mainBlock={true}/>
+        <Header mainBlock={true} mainPage={true}/>
       </FullWidthContainer>
 
       <div>
-        <Header mainBlock={false}/>
+        <Header mainBlock={false} mainPage={true}/>
         <FullWidthContainer background={'url(/assets/images/BG_matrix.svg)'}>
           <div className={styles.mainScreenWrapper}>
             <h1 className={styles.title}>Skills container</h1>

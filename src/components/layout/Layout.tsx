@@ -12,18 +12,22 @@ const Layout: FC<ILayoutProps> = ({children}) => {
   const toggleHeader = useStore((state) => state.toggleHeader)
   const isShowFooter = useStore((state) => state.showFooter)
 
-  const showFooter = () => {
-    // Scroll position variables
-    const windowHeight = window.innerHeight; // Viewport height
-    const documentHeight = document.documentElement.scrollHeight; // Document height
-    const scrolledToBottom = window.scrollY + windowHeight >= documentHeight;
+  useEffect(() => {
+    window.addEventListener('scroll', showFooter)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }, [])
 
-    const scrolledToTop = window.scrollY === 0;
+  const showFooter = () => {
+    const windowHeight = window.innerHeight
+    const scrolledToTop = window.scrollY === 0
+    const documentHeight = document.documentElement.scrollHeight
+    const scrolledToBottom = window.scrollY + windowHeight >= documentHeight - 10
 
     // Check if scrolled to top
     if (scrolledToTop) {
-      // Scrolled to top, do something
-      console.log('Scrolled to the top!');
       toggleHeader(true)
     } else {
       toggleHeader(false)
@@ -31,17 +35,11 @@ const Layout: FC<ILayoutProps> = ({children}) => {
 
     // Check if scrolled to bottom
     if (scrolledToBottom) {
-      // Scrolled to bottom, do something
-      console.log('Scrolled to the bottom!');
       toggleFooter(true)
     } else {
       toggleFooter(false)
     }
   }
-
-  useEffect(() => {
-    window.addEventListener('scroll', showFooter);
-  }, [])
 
   return (
     <>

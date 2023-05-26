@@ -2,7 +2,7 @@ import styles from './Contact.module.scss'
 
 const Contact = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id={"contact_us"}>
       <div className={styles.formWrapper}>
         <div className={styles.rightContainer}>
           <h1 className={styles.rightTitle}>Write to us</h1>

@@ -13,6 +13,13 @@ interface IFooterProps {
 const Footer: FC<IFooterProps> = ({show}) => {
   const {pathname} = useRouter()
 
+  const handleCLickCurrentPage = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
   return (
     <div className={show ? styles.footer_wrapper_show : styles.footer_wrapper}>
       <div className={styles.rowContainer}>
@@ -21,15 +28,25 @@ const Footer: FC<IFooterProps> = ({show}) => {
             <Image src="/assets/images/Logo.svg" width={150} height={60} alt="logo"/>
           </div>
           <div className={styles.links}>
-            {navigation.map(({id, title, route, path}) => (
-              <Link key={id} href={ROUTES[route]}>
-                <a className={pathname === path ? styles.active : undefined}>{title}</a>
-              </Link>
-            ))}
+            {navigation.map(({id, title, route, path}) => {
+              if (pathname === path) {
+                return (
+                  <div key={id} onClick={handleCLickCurrentPage}>
+                    <a>{title}</a>
+                  </div>
+                )
+              } else {
+                return (
+                  <Link key={id} href={ROUTES[route]}>
+                    <a>{title}</a>
+                  </Link>
+                )
+              }
+              })}
           </div>
         </div>
         <div className={styles.copyrightContainer}>
-          <h3>CrankIT.com  2023 ©</h3>
+          <h3>CrankIT.com 2023 ©</h3>
           <h3>design by Sofiia Tonkonoh</h3>
           <h3>privacy policy</h3>
         </div>
