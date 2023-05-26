@@ -3,7 +3,7 @@ import styles from "./FullWidth.module.scss";
 
 interface IProps {
   background: string,
-  children: ReactNode
+  children: ReactNode,
 }
 
 const FullWidthContainer: FC<IProps> = ({background, children}) => (

@@ -1,16 +1,20 @@
 import {FC} from 'react'
+import Link from "next/link"
+import Image from "next/image"
+import {useRouter} from "next/router"
 import styles from './footer.module.scss'
-import Image from "next/image";
-import Link from "next/link";
-import {ROUTES} from "../../constants/route.constants";
-import {navigation} from "../header/Header";
-import {useRouter} from "next/router";
+import {navigation} from "../header/Header"
+import {ROUTES} from "../../constants/route.constants"
 
-const Footer: FC = () => {
+interface IFooterProps {
+  show: boolean
+}
+
+const Footer: FC<IFooterProps> = ({show}) => {
   const {pathname} = useRouter()
 
   return (
-    <div className={styles.footer_wrapper}>
+    <div className={show ? styles.footer_wrapper_show : styles.footer_wrapper}>
       <div className={styles.rowContainer}>
         <div className={styles.headerContainer}>
           <div className={styles.logo}>

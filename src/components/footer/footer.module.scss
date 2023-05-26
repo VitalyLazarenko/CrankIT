@@ -4,18 +4,25 @@
   .footer_wrapper {
     position: fixed;
     z-index: 100;
-    bottom: 0;
+    bottom: -100px;
     left: 0;
     width: 100%;
     min-height: 80px;
     text-align: center;
     font-size: 12px;
 
+    transition: all .3s ease;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     background: linear-gradient(180deg, $background_global 15%, #ffca02 147.08%);
+
+    &_show {
+      @extend .footer_wrapper;
+      bottom: 0;
+    }
 
     .rowContainer {
       width: 100%;

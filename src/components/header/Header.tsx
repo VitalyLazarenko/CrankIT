@@ -1,9 +1,10 @@
 import {FC} from 'react'
+import Link from "next/link"
+import Image from "next/image"
+import {useRouter} from "next/router"
+import useStore from "../../store/store"
 import styles from './header.module.scss'
-import Image from "next/image";
-import Link from "next/link";
-import {ROUTES} from "../../constants/route.constants";
-import {useRouter} from "next/router";
+import {ROUTES} from "../../constants/route.constants"
 
 export interface INavigation {
   id: number,
@@ -13,16 +14,24 @@ export interface INavigation {
 }
 
 export const navigation: INavigation[] = [
-  { id: 1, title: 'Home', route: 'home', path: '/' },
-  { id: 2, title: 'Our works', route: 'posts', path: '/posts' },
-  { id: 3, title: 'About us', route: 'contacts', path: '/contacts' },
-  { id: 4, title: 'Contact us', route: 'fiber', path: '/fiber' },
+  {id: 1, title: 'Home', route: 'home', path: '/'},
+  {id: 2, title: 'Our works', route: 'posts', path: '/posts'},
+  {id: 3, title: 'About us', route: 'contacts', path: '/contacts'},
+  {id: 4, title: 'Contact us', route: 'fiber', path: '/fiber'},
 ]
-const Header: FC = () => {
-  const { pathname } = useRouter()
+
+interface IHeaderProps {
+  mainBlock: boolean,
+}
+
+const Header: FC<IHeaderProps> = ({mainBlock = false}) => {
+  const {pathname} = useRouter()
+  const isShowFooter = useStore((state) => state.showFooter)
+  const isShowHeader = useStore((state) => state.showHeader)
 
   return (
-    <div className={styles.header_wrapper}>
+    <div
+      className={mainBlock ? isShowHeader ? styles.headerWrapperMain : styles.headerWrapperMainHide : isShowFooter ? styles.headerWrapperHide : styles.headerWrapper}>
       <div className={styles.headerContainer}>
         <div className={styles.logo}>
           <Image src="/assets/images/Logo.svg" width={150} height={60} alt="logo"/>

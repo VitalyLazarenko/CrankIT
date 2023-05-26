@@ -2,11 +2,11 @@ import Head from 'next/head'
 import type {NextPage} from 'next'
 import {GetStaticProps} from 'next'
 import styles from '../styles/Home.module.scss'
-import Socials from '../components/socials/Socials'
+import Header from "../components/header/Header"
 import {SocialTypes} from '../types/app.types/appTypes'
+import Contact from "../components/Contact.component/Contact"
 import {requestConstants} from '../constants/request.constans'
-import FullWidthContainer from "../components/FullWidth.component/FullWidth";
-import Contact from "../components/Contact.component/Contact";
+import FullWidthContainer from "../components/FullWidth.component/FullWidth"
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -44,19 +44,21 @@ const Home: NextPage<IHomePage> = ({socials}) => {
         <div className={styles.mainScreenWrapper}>
           <h1 className={styles.title}>Sed cras integer mattis in id </h1>
         </div>
+        <Header mainBlock={true}/>
       </FullWidthContainer>
 
-      <FullWidthContainer background={'url(/assets/images/BG_matrix.svg)'}>
-        <div className={styles.mainScreenWrapper}>
-          <h1 className={styles.title}>Skills container</h1>
-        </div>
-      </FullWidthContainer>
+      <div>
+        <Header mainBlock={false}/>
+        <FullWidthContainer background={'url(/assets/images/BG_matrix.svg)'}>
+          <div className={styles.mainScreenWrapper}>
+            <h1 className={styles.title}>Skills container</h1>
+          </div>
+        </FullWidthContainer>
 
-      <FullWidthContainer background={'#202121'}>
-        <Contact/>
-      </FullWidthContainer>
-
-      <Socials socials={socials}/>
+        <FullWidthContainer background={'#202121'}>
+          <Contact/>
+        </FullWidthContainer>
+      </div>
     </div>
   )
 }
