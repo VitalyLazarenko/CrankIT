@@ -40,7 +40,7 @@ const Home: NextPage<IHomePage> = ({socials}) => {
         <title>CrankIT</title>
       </Head>
 
-      <FullWidthContainer background={'url(/assets/images/BG.png)'}>
+      <FullWidthContainer background={'url(/assets/images/BG_2_1.webp)'}>
         <div className={styles.mainScreenWrapper}>
           <h1 className={styles.title}>Sed cras integer mattis in id </h1>
         </div>
