@@ -1,4 +1,4 @@
-import {FC, ReactNode} from "react";
+import {FC, ReactNode, useEffect, useState} from "react";
 import styles from "./FullWidth.module.scss";
 
 interface IProps {
@@ -6,11 +6,15 @@ interface IProps {
   children: ReactNode,
 }
 
-const FullWidthContainer: FC<IProps> = ({background, children}) => (
-  <div className={styles.container} style={{background: background}}>
-    {children}
-  </div>
-)
+const FullWidthContainer: FC<IProps> = ({background = '', children}) => {
+  return (
+    <div>
+      <div className={styles.container} style={background ? {background: background} : {}}>
+        {children}
+      </div>
+    </div>
+  )
+}
 
 
 export default FullWidthContainer

@@ -4,13 +4,33 @@
   .mainScreenWrapper {
     width: 100%;
     height: 100%;
-    //background: #FAFA00;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    .image {
+      box-sizing: border-box;
+      display: block;
+      overflow: hidden;
+      width: initial;
+      height: initial;
+      background: none;
+      opacity: 1;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transform: scale(1.1);
+
+      transition: all .15s ease;
+    }
     .title {
+      z-index: 200;
       //font-family: 'Josefin Sans';
       font-style: normal;
       font-weight: 400;
@@ -20,6 +40,8 @@
 
       text-align: center;
       letter-spacing: 0.05em;
+
+      transition: all .15s ease;
 
       color: #FFFFFF;
     }
