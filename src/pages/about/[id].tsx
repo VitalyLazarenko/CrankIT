@@ -2,7 +2,6 @@ import { FC } from 'react'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { contactType } from '../../types/app.types/appTypes'
-import ContactInfo from '../../components/contact.info/ContactInfo'
 
 export const getServerSideProps: GetServerSideProps = async ( context ) => {
   // @ts-ignore TODO need check this!
@@ -30,7 +29,6 @@ const Contact: FC<IContactProps> = ( { contact } ) => (
     <Head>
       <title>Contact page</title>
     </Head>
-    <ContactInfo contact={ contact }/>
   </>
 )
 
