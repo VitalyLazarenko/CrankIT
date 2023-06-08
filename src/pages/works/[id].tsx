@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Head from 'next/head'
-import styles from './posts.module.scss'
+import styles from './works.module.scss'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { postType } from '../../types/app.types/appTypes'
 

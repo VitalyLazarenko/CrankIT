@@ -1,6 +1,6 @@
 @import "src/styles/variables";
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1425px) {
   .wrapper {
     width: 100%;
     height: calc(100% - 85px);
@@ -51,7 +51,7 @@
         background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
       }
 
-      .rightContainer {
+      .leftContainer {
         width: auto;
         height: calc(100% - 60px);
         min-width: 370px;
@@ -62,41 +62,55 @@
 
         padding: 30px;
 
-        .rightTitle {
-          //font-family: 'Josefin Sans';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 35px;
-          line-height: 35px;
-          /* identical to box height */
+        .rightTextContainer {
+          .rightTitle {
+            width: fit-content !important;
+            //font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 35px;
+            /* identical to box height */
 
-          letter-spacing: 0.02em;
+            text-shadow: 5px 5px 8px rgba(0,0,0, 0.7);
 
-          color: #FFFFFF;
-        }
-        .text {
-          //font-family: 'Josefin Sans';
-          font-style: normal;
-          font-weight: 300;
-          font-size: 18px;
-          line-height: 18px;
-          /* identical to box height */
+            margin-top: 0;
+            letter-spacing: 0.02em;
 
-          letter-spacing: 0.02em;
+            color: #FFFFFF;
+          }
+          .text {
+            width: fit-content !important;
+            //font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 18px;
+            /* identical to box height */
+            text-shadow: 5px 3px 8px rgba(0,0,0, 0.7);
 
-          color: #FFFFFF;
+            letter-spacing: 0.02em;
+
+            color: #FFFFFF;
 
 
-          /* Inside auto layout */
+            /* Inside auto layout */
 
-          flex: none;
-          order: 1;
-          flex-grow: 0;
+            flex: none;
+            order: 1;
+            flex-grow: 0;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
         }
       }
-      .leftContainer {
+
+      .rightContainer {
         width: 100%;
         height: 100%;
+        padding-left: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -117,10 +131,108 @@
 
           margin: 0;
         }
-        .topInputContainer {}
-        .messageContainer {color: white}
-        .checkboxContainer {}
-        .sendButton {color: white}
+        .topInputContainer {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          margin-top: 10%;
+
+          .inputTop {
+            width: 45%;
+            border: none;
+            color: white;
+            outline: none;
+            padding-bottom: 2%;
+            background: transparent;
+            border-bottom: 1px solid white;
+          }
+        }
+        .messageContainer {
+          width: 100%;
+          height: 100%;
+          margin: 10% 0;
+          max-height: calc(100% - 100px);
+          textarea {
+            width: 96%;
+            height: 96%;
+            background: transparent;
+            border: 1px solid #FFF;
+            padding: 2%;
+
+            font-family: inherit;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 18px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.02em;
+
+            color: #FFF;
+          }
+        }
+        .checkboxContainer {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          margin-bottom: 10%;
+
+          .radio_input {
+            display: none;
+          }
+          .radio_label {
+            //font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 18px;
+            letter-spacing: 0.02em;
+
+            color: #FFFFFF;
+
+            display: inline-block;
+            position: relative;
+            padding-left: 25px;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:last-child {
+              margin-right: 0;
+            }
+
+            &:before {
+              left: 0;
+              top: 0;
+              content: "";
+              width: 16px;
+              height: 16px;
+              position: absolute;
+              border: 1px solid #FFFFFF;
+
+            }
+            &:after {
+              top: 9px;
+              left: 9px;
+              opacity: 0;
+              width: 9px;
+              height: 9px;
+              content: "";
+              position: absolute;
+              background-color: #E5BE2C;
+              transform: translate(-50%, -50%);
+              transition: opacity 0.2s ease-in-out;
+            }
+          }
+          .radio_input:checked + .radio_label:after {
+            opacity: 1;
+          }
+        }
       }
     }
   }

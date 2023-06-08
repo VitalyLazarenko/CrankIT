@@ -1,0 +1,93 @@
+@import "src/styles/variables";
+
+@media screen and (min-width: 1425px) {
+  .sendButton {
+    cursor: pointer;
+    position: relative;
+    width: 160px;
+    min-height: 50px;
+    overflow: hidden;
+
+    background: transparent;
+
+    color: white;
+    //font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    outline: none;
+    border: none;
+
+    transition: $transition_primary;
+    animation: shadow-animation 5s linear infinite;
+    filter: drop-shadow(-5px -5px 20px rgba(226, 194, 45, 0.1)) drop-shadow(5px 5px 20px rgba(226, 194, 45, 0.1));
+    //animation-timing-function: steps(30); //TODO I will need test performance with different steps
+
+    &:hover {
+      animation-play-state: paused;
+      background: #E5BE2C;
+      box-shadow: 0 0 10px 10px rgba(255, 206, 0, 0.1);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -2;
+      width: 150%;
+      height: 150%;
+      opacity: .7;
+      background-color: #E5BE2C;
+      filter: drop-shadow(-5px -5px 20px rgba(226, 194, 45, 0.05)) drop-shadow(5px 5px 20px rgba(226, 194, 45, 0.8));
+      animation: rotate-border 5s cubic-bezier(0.34, 0.15, 0.66, 0.97) infinite;
+      //animation-timing-function: steps(30); //TODO I will need test performance with different steps
+      box-shadow: 0 0 5px 3px #FFF;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 2px;
+      top: 2px;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      background: #202121;
+    }
+  }
+
+  @keyframes rotate-border {
+    0% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+    25% {
+      transform: translate(25%, 25%) rotate(90deg);
+    }
+    50% {
+      transform: translate(50%, 100%) rotate(180deg);
+    }
+    75% {
+      transform: translate(25%, 25%) rotate(90deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+
+  @keyframes shadow-animation {
+    0% {
+      box-shadow: 0 0 10px 5px rgba(255, 206, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 0 0 rgba(255, 206, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 10px 5px rgba(255, 206, 0, 0.2);
+    }
+  }
+}

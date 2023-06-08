@@ -1,10 +1,10 @@
 import {FC} from 'react'
 import Link from "next/link"
-import Image from "next/image"
 import {useRouter} from "next/router"
 import styles from './footer.module.scss'
 import {navigation} from "../header/Header"
 import {ROUTES} from "../../constants/route.constants"
+import {translate} from "maath/buffer";
 
 interface IFooterProps {
   show: boolean
@@ -21,11 +21,14 @@ const Footer: FC<IFooterProps> = ({show}) => {
   }
 
   return (
-    <div className={show ? styles.footer_wrapper_show : styles.footer_wrapper}>
+    <div
+      className={styles.footer_wrapper}
+      style={show ? {transform: 'translateY(-100%)'} : {}}
+    >
       <div className={styles.rowContainer}>
         <div className={styles.headerContainer}>
           <div className={styles.logo}>
-            <Image src="/assets/images/Logo.svg" width={150} height={60} alt="logo"/>
+            <img src="/assets/images/Logo.svg" className={styles.image} alt="logo"/>
           </div>
           <div className={styles.links}>
             {navigation.map(({id, title, route, path}) => {

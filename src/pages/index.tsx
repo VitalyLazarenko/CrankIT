@@ -54,11 +54,11 @@ const Home: NextPage<IHomePage> = ({socials}) => {
             <h1 className={styles.title}>Skills container</h1>
           </div>
         </FullWidthContainer>
-
-        <FullWidthContainer background={'#202121'}>
-          <Contact/>
-        </FullWidthContainer>
       </div>
+
+      <FullWidthContainer background={'#202121'}>
+        <Contact/>
+      </FullWidthContainer>
     </div>
   )
 }

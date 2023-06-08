@@ -1,6 +1,6 @@
 @import "src/styles/variables";
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1425px) {
   .headerWrapper {
     position: sticky;
     z-index: 100;
@@ -19,7 +19,7 @@
     &Hide {
       @extend .headerWrapper;
 
-      top: -70px;
+      transform: translateY(-100%);
     }
 
     .headerContainer {
@@ -81,7 +81,8 @@
 
     &Hide {
       @extend .headerWrapperMain;
-      top: 100%;
+      //top: 100%;
+      transform: translateY(100%);
     }
   }
 }
