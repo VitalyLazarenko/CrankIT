@@ -7,10 +7,8 @@ import {SocialTypes} from '../types/app.types/appTypes'
 import Contact from "../components/Contact.component/Contact"
 import {requestConstants} from '../constants/request.constans'
 import FullWidthContainer from "../components/FullWidth.component/FullWidth"
-import React, {DetailedHTMLProps, forwardRef, ImgHTMLAttributes, LegacyRef, useEffect, useRef, useState} from "react";
-import contact from "../components/Contact.component/Contact";
-
-import Image, {ImageProps} from 'next/image';
+import React, {LegacyRef, useEffect, useRef, useState} from "react";
+import Image from 'next/image';
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -42,11 +40,15 @@ const Home: NextPage<IHomePage> = ({socials}) => {
   const titleRef: LegacyRef<HTMLDivElement> | undefined = useRef<HTMLImageElement>(null)
   const [grass, setGrass] = useState<EventTarget | null>(null)
   const [rocks, setRocks] = useState<EventTarget | null>(null)
+  const [clouds, setClouds] = useState<EventTarget | null>(null)
+
+  const deltaGrass: number = 0.6
+  const deltaRocks: number = 1
+  const deltaClouds: number = 4
+  const deltaTitle: number = 3
 
   useEffect(() => {
-    console.log(2);
-    if (container.current && grass && rocks) {
-      console.log(2);
+    if (container.current && grass && rocks && clouds) {
       container.current.addEventListener('mousemove', (event) => {
         const {offsetX: x, offsetY: y} = event
         // @ts-ignore
@@ -56,11 +58,13 @@ const Home: NextPage<IHomePage> = ({socials}) => {
         const move = 5
 
         // @ts-ignore
-        grass.style.transform = `translate(${-x / widthGrass * (move) - move}px, ${-y / heightGrass * (move * 2) - move}px) scale(1.1)`;
+        grass.style.transform = `translate(${-x / widthGrass * (move * deltaGrass) - move}px, ${-y / heightGrass * (move * deltaGrass) - move}px)`;
         // @ts-ignore
-        rocks.style.transform = `translate(${x / widthGrass * (move) - move}px, ${y / heightGrass * (move * 2) - move}px) scale(1.1)`;
+        rocks.style.transform = `translate(${x / widthGrass * (move * deltaRocks) - move}px, ${y / heightGrass * (move * deltaRocks) - move}px)`;
         // @ts-ignore
-        titleRef.current.style.transform = `translate(${-x / widthGrass * (move * 5) - move}px, ${y / heightGrass * (move * 5) - move}px)`;
+        clouds.style.transform = `translate(${x / widthGrass * (move * deltaClouds) - move}px, ${y / heightGrass * (move * deltaClouds) - move}px)`;
+        // @ts-ignore
+        titleRef.current.style.transform = `translate(${-x / widthGrass * (move * deltaTitle) - move}px, ${y / heightGrass * (move * deltaTitle) - move}px)`;
       })
     }
   }, [container.current, grass, rocks])
@@ -76,26 +80,26 @@ const Home: NextPage<IHomePage> = ({socials}) => {
         <div className={styles.mainScreenWrapper}>
           <Image
             layout='fill'
-            src="/assets/images/banner/BG_2_1.webp"
+            src="/assets/images/banner/new/BG_Mountains_Big_2.webp"
             alt="bg"
           />
           <Image
-            // onLoad={(e) => setRocks(e.target)}
+            onLoad={(e) => setClouds(e.target)}
             layout='fill'
             className={styles.image}
-            src="/assets/images/banner/Mountains_Big.webp"
+            src="/assets/images/banner/new/Cloud_Big.webp"
             alt="rocks"/>
           <Image
             onLoad={(e) => setRocks(e.target)}
             layout='fill'
             className={styles.image}
-            src="/assets/images/banner/Rocks_Big.webp"
+            src="/assets/images/banner/new/Rocks_Big.webp"
             alt="rocks"/>
           <Image
             onLoad={(e) => setGrass(e.target)}
             layout='fill'
             className={styles.image}
-            src="/assets/images/banner/Grass_Big.webp"
+            src="/assets/images/banner/new/Grass_Big.webp"
             alt="grass"/>
 
           <div ref={container} style={{position: "absolute", width: '100vw', height: '100vh', zIndex: 300}}/>

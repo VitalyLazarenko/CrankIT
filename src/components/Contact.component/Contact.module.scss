@@ -10,6 +10,8 @@
     align-items: center;
     justify-content: center;
 
+    overflow: hidden;
+
     .formWrapper {
       width: 85%;
       height: 80%;
@@ -24,6 +26,20 @@
       position: relative;
       z-index: 10;
 
+      &Hide {
+        @extend .formWrapper;
+
+        &:before {
+          transform: translateY(-50%) scaleY(0) !important;
+          opacity: 0 !important;
+        }
+
+        &:after {
+          transform: translateY(-50%) scaleY(0) !important;
+          opacity: 0 !important;
+        }
+      }
+
       &:before {
         content: "";
         width: 5%;
@@ -34,9 +50,13 @@
         left: -5%;
         z-index: 10;
 
-        transform: translateY(-50%);
+        opacity: 1;
+        transition: all 1s ease .5s !important;
+
+        transform: translateY(-50%) scaleY(1);
         background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
       }
+
       &:after {
         content: "";
         width: 5%;
@@ -47,7 +67,10 @@
         right: -5%;
         z-index: 10;
 
-        transform: translateY(-50%);
+        opacity: 1;
+        transition: all 1s ease .5s !important;
+
+        transform: translateY(-50%) scaleY(1);
         background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
       }
 
@@ -60,10 +83,20 @@
 
         overflow: hidden;
 
+        opacity: 1;
+        transition: all .35s ease .2s;
+
+        &Hide {
+          @extend .leftContainer;
+          opacity: 0;
+        }
+
         padding: 30px;
 
-        .rightTextContainer {
-          .rightTitle {
+        .leftTextContainer {
+          transform: translateX(0);
+
+          .leftTitle {
             width: fit-content !important;
             //font-family: 'Josefin Sans';
             font-style: normal;
@@ -72,13 +105,23 @@
             line-height: 35px;
             /* identical to box height */
 
-            text-shadow: 5px 5px 8px rgba(0,0,0, 0.7);
+            text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
 
             margin-top: 0;
             letter-spacing: 0.02em;
 
             color: #FFFFFF;
+            transform: translateY(0);
+            transition: all .45s ease .6s;
+
+            &Hide {
+              width: fit-content !important;
+              font-size: 35px;
+              color: #FFFFFF;
+              transform: translateY(-300%);
+            }
           }
+
           .text {
             width: fit-content !important;
             //font-family: 'Josefin Sans';
@@ -87,15 +130,24 @@
             font-size: 18px;
             line-height: 18px;
             /* identical to box height */
-            text-shadow: 5px 3px 8px rgba(0,0,0, 0.7);
+            text-shadow: 5px 3px 8px rgba(0, 0, 0, 0.7);
 
             letter-spacing: 0.02em;
-
             color: #FFFFFF;
 
+            transform: translateX(0);
+            transition: all .45s ease 1s;
+            opacity: 1;
+
+            &Hide {
+              width: fit-content !important;
+              font-size: 18px;
+              color: #FFFFFF;
+              opacity: 0;
+              transform: translateX(-300%);
+            }
 
             /* Inside auto layout */
-
             flex: none;
             order: 1;
             flex-grow: 0;
@@ -111,11 +163,24 @@
         width: 100%;
         height: 100%;
         padding-left: 30px;
+
+        overflow: hidden;
+
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+
         .formTitle {
+          &Hide {
+            transform: translateY(-200%);
+            font-size: 50px;
+            color: #E5BE2C;
+          }
+
+          transform: translateY(0);
+          transition: all .45s ease .6s;
+
           //font-family: 'Josefin Sans';
           font-style: normal;
           font-weight: 400;
@@ -131,6 +196,7 @@
 
           margin: 0;
         }
+
         .topInputContainer {
           width: 100%;
           display: flex;
@@ -139,24 +205,62 @@
 
           margin-top: 10%;
 
-          .inputTop {
-            width: 45%;
-            border: none;
-            color: white;
-            outline: none;
-            padding-bottom: 2%;
+          .inputTopLeft {
             background: transparent;
-            border-bottom: 1px solid white;
+            transform: translateX(-200%);
+
+            &Show {
+              width: 45%;
+              border: none;
+              color: white;
+              outline: none;
+              padding-bottom: 2%;
+              background: transparent;
+              border-bottom: 1px solid white;
+
+              transform: translateX(0);
+              transition: all 1s ease 1s;
+            }
+          }
+
+          .inputTopRight {
+            background: transparent;
+            transform: translateX(200%);
+
+            &Show {
+              width: 45%;
+              border: none;
+              color: white;
+              outline: none;
+              padding-bottom: 2%;
+              background: transparent;
+              border-bottom: 1px solid white;
+
+              transform: translateX(0);
+              transition: all .5s ease 1s;
+            }
           }
         }
+
         .messageContainer {
+          &Hide {
+            opacity: 0;
+            transform: scale(0);
+          }
+
+          opacity: 1;
+          transform: scale(1);
+          transition: all .5s ease 1.5s;
+
           width: 100%;
           height: 100%;
-          margin: 10% 0;
+          margin: 5% 0;
           max-height: calc(100% - 100px);
+
           textarea {
-            width: 96%;
-            height: 96%;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
             background: transparent;
             border: 1px solid #FFF;
             padding: 2%;
@@ -175,17 +279,27 @@
             color: #FFF;
           }
         }
+
         .checkboxContainer {
+          &Hide {
+            opacity: 0;
+            transform: scale(0);
+          }
+
+          opacity: 1;
+          transform: scale(1);
+          transition: all .5s ease 1.5s;
+
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
-
-          margin-bottom: 10%;
+          margin-bottom: 5%;
 
           .radio_input {
             display: none;
           }
+
           .radio_label {
             //font-family: 'Josefin Sans';
             font-style: normal;
@@ -216,6 +330,7 @@
               border: 1px solid #FFFFFF;
 
             }
+
             &:after {
               top: 9px;
               left: 9px;
@@ -229,8 +344,27 @@
               transition: opacity 0.2s ease-in-out;
             }
           }
+
           .radio_input:checked + .radio_label:after {
             opacity: 1;
+          }
+        }
+
+        .sendContainer {
+          width: 100%;
+
+          box-sizing: border-box;
+
+          padding-bottom: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transform: translateY(0);
+          transition: all 1s ease 1s;
+
+          &Hide {
+            transform: translateY(200%);
           }
         }
       }

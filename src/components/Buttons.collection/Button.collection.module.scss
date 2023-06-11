@@ -26,7 +26,7 @@
 
     transition: $transition_primary;
     animation: shadow-animation 5s linear infinite;
-    filter: drop-shadow(-5px -5px 20px rgba(226, 194, 45, 0.1)) drop-shadow(5px 5px 20px rgba(226, 194, 45, 0.1));
+    filter: drop-shadow(-3px -3px 10px rgba(226, 194, 45, 0.1)) drop-shadow(3px 3px 10px rgba(226, 194, 45, 0.1));
     //animation-timing-function: steps(30); //TODO I will need test performance with different steps
 
     &:hover {

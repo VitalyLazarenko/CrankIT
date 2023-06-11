@@ -78,6 +78,7 @@
     @extend .headerWrapper;
     position: absolute !important;
     top: calc(100% - 70px);
+    z-index: 300;
 
     &Hide {
       @extend .headerWrapperMain;
