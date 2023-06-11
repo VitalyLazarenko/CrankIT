@@ -8,16 +8,21 @@ const Contact = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Element is now visible on the screen
-          setIsShow(true)
-        } else {
-          // Element is no longer visible on the screen
-          setIsShow(false)
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Element is now visible on the screen
+            setIsShow(true)
+          } else {
+            // Element is no longer visible on the screen
+            setIsShow(false)
+          }
+        });
+      },
+      {
+        root: null, // Set the root element (default is viewport)
+        rootMargin: '0px', // Adjust the root margin as needed
+        threshold: 0.5, // Specify the intersection threshold (e.g., 0.5 for 50% visibility)
       });
-    });
 
     if (targetRef.current) {
       observer.observe(targetRef.current);
@@ -51,12 +56,12 @@ const Contact = () => {
             <input
               type="text"
               placeholder={"Your name"}
-              className={isShow ? styles.inputTopLeftShow : styles.inputTopLeft}
+              className={isShow ? styles.inputTopLeft : styles.inputTopLeftHide}
             />
             <input
               type="text"
               placeholder={"Your email"}
-              className={isShow ? styles.inputTopRightShow : styles.inputTopRight}
+              className={isShow ? styles.inputTopRight : styles.inputTopRightHide}
             />
           </div>
 

@@ -147,7 +147,7 @@
               transform: translateX(-300%);
             }
 
-            /* Inside auto layout */
+            /* Inside auto Layout.component */
             flex: none;
             order: 1;
             flex-grow: 0;
@@ -206,38 +206,50 @@
           margin-top: 10%;
 
           .inputTopLeft {
+            width: 45%;
+            border: none;
+            color: white;
+            outline: none;
+            padding-bottom: 2%;
             background: transparent;
-            transform: translateX(-200%);
+            border-bottom: 1px solid white;
 
-            &Show {
-              width: 45%;
-              border: none;
-              color: white;
+            transform: translateX(0);
+            transition: all 1s ease 1s;
+
+            &:focus {
               outline: none;
-              padding-bottom: 2%;
-              background: transparent;
-              border-bottom: 1px solid white;
+              transition: all .25s ease !important;
+              border-bottom: 1px solid #E5BE2C !important;
+            }
 
-              transform: translateX(0);
-              transition: all 1s ease 1s;
+            &Hide {
+              background: transparent;
+              transform: translateX(-200%);
             }
           }
 
           .inputTopRight {
+            width: 45%;
+            border: none;
+            color: white;
+            outline: none;
+            padding-bottom: 2%;
             background: transparent;
-            transform: translateX(200%);
+            border-bottom: 1px solid white;
+            transform: translateX(0);
+            transition: all .5s ease 1s;
 
-            &Show {
+            &:focus {
               width: 45%;
-              border: none;
-              color: white;
               outline: none;
-              padding-bottom: 2%;
-              background: transparent;
-              border-bottom: 1px solid white;
+              transition: all .25s ease !important;
+              border-bottom: 1px solid #E5BE2C !important;
+            }
 
-              transform: translateX(0);
-              transition: all .5s ease 1s;
+            &Hide {
+              background: transparent;
+              transform: translateX(200%);
             }
           }
         }
@@ -250,7 +262,7 @@
 
           opacity: 1;
           transform: scale(1);
-          transition: all .5s ease 1.5s;
+          transition: all .8s ease 1.5s;
 
           width: 100%;
           height: 100%;
@@ -277,6 +289,11 @@
             letter-spacing: 0.02em;
 
             color: #FFF;
+
+            &:focus {
+              outline: none;
+              border: 1px solid #E5BE2C;
+            }
           }
         }
 
@@ -361,7 +378,7 @@
           justify-content: center;
 
           transform: translateY(0);
-          transition: all 1s ease 1s;
+          transition: all 1s ease 2s;
 
           &Hide {
             transform: translateY(200%);

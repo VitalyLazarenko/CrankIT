@@ -1,16 +1,15 @@
-import {FC} from 'react'
+import {FC, forwardRef} from 'react'
 import Link from "next/link"
 import {useRouter} from "next/router"
 import styles from './footer.module.scss'
-import {navigation} from "../header/Header"
+import {navigation} from "../Header.component/Header"
 import {ROUTES} from "../../constants/route.constants"
-import {translate} from "maath/buffer";
 
 interface IFooterProps {
   show: boolean
 }
 
-const Footer: FC<IFooterProps> = ({show}) => {
+export const Footer: FC<IFooterProps> = ({show}) => {
   const {pathname} = useRouter()
 
   const handleCLickCurrentPage = () => {
@@ -45,7 +44,7 @@ const Footer: FC<IFooterProps> = ({show}) => {
                   </Link>
                 )
               }
-              })}
+            })}
           </div>
         </div>
         <div className={styles.copyrightContainer}>
@@ -57,5 +56,3 @@ const Footer: FC<IFooterProps> = ({show}) => {
     </div>
   )
 }
-
-export default Footer

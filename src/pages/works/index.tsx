@@ -4,7 +4,7 @@ import {GetStaticProps} from 'next'
 import styles from './works.module.scss'
 import {postType} from '../../types/app.types/appTypes'
 import {requestConstants} from '../../constants/request.constans'
-import Header from "../../components/header/Header";
+import Header from "../../components/Header.component/Header";
 import FullWidthContainer from "../../components/FullWidth.component/FullWidth";
 import Contact from "../../components/Contact.component/Contact";
 
@@ -37,25 +37,25 @@ const Posts: FC<IPostsProps> = ({posts}) => {
 
         <div>
           <Header mainBlock={false} mainPage={false}/>
-          <FullWidthContainer background={'url(/assets/images/BG_Model.png)'}>
+          <FullWidthContainer background={'url(/assets/images/BG_Model.png)'} isPaddingDisabled={false}>
             <div className={styles.mainScreenWrapper}>
               <h1 className={styles.title}>Skills container</h1>
             </div>
           </FullWidthContainer>
 
-          <FullWidthContainer background={'url(/assets/images/BG_Model.png)'}>
+          <FullWidthContainer background={'url(/assets/images/BG_Model.png)'} isPaddingDisabled={false}>
             <div className={styles.mainScreenWrapper}>
               <h1 className={styles.title}>Skills container</h1>
             </div>
           </FullWidthContainer>
 
-          <FullWidthContainer background={'url(/assets/images/BG_Model.png)'}>
+          <FullWidthContainer background={'url(/assets/images/BG_Model.png)'} isPaddingDisabled={false}>
             <div className={styles.mainScreenWrapper}>
               <h1 className={styles.title}>Skills container</h1>
             </div>
           </FullWidthContainer>
         </div>
-        <FullWidthContainer background={'#202121'}>
+        <FullWidthContainer background={'#202121'} isPaddingDisabled={false}>
           <Contact/>
         </FullWidthContainer>
       </div>

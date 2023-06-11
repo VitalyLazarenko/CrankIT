@@ -4,7 +4,7 @@ import FullWidthContainer from "../components/FullWidth.component/FullWidth";
 export default function Error() {
   return (
     <>
-      <FullWidthContainer background={''}>
+      <FullWidthContainer background={''} isPaddingDisabled={false}>
         <div style={{
           width: '100%',
           height: '100%',

@@ -2,13 +2,14 @@ import Head from 'next/head'
 import type {NextPage} from 'next'
 import {GetStaticProps} from 'next'
 import styles from '../styles/Home.module.scss'
-import Header from "../components/header/Header"
+import Header from "../components/Header.component/Header"
 import {SocialTypes} from '../types/app.types/appTypes'
 import Contact from "../components/Contact.component/Contact"
 import {requestConstants} from '../constants/request.constans'
 import FullWidthContainer from "../components/FullWidth.component/FullWidth"
 import React, {LegacyRef, useEffect, useRef, useState} from "react";
 import Image from 'next/image';
+import {HomeViewerComponent} from "../components/HomeViewer.component/HomeViewerComponent";
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -76,7 +77,7 @@ const Home: NextPage<IHomePage> = ({socials}) => {
       </Head>
 
       {/*<FullWidthContainer background={'url(/assets/images/BG_2_1.webp)'}>*/}
-      <FullWidthContainer background={''}>
+      <FullWidthContainer background={''} isPaddingDisabled={false}>
         <div className={styles.mainScreenWrapper}>
           <Image
             layout='fill'
@@ -110,14 +111,17 @@ const Home: NextPage<IHomePage> = ({socials}) => {
 
       <div>
         <Header mainBlock={false} mainPage={true}/>
-        <FullWidthContainer background={'url(/assets/images/BG_matrix.svg)'}>
+        <FullWidthContainer background={'#202121'} isPaddingDisabled={false}>
           <div className={styles.mainScreenWrapper}>
-            <h1 className={styles.title}>Skills container</h1>
+            <h1 className={styles.title}>Why are you need to work with us?</h1>
           </div>
+        </FullWidthContainer>
+        <FullWidthContainer background={'url(/assets/images/BG_matrix.svg)'} isPaddingDisabled={false}>
+          <HomeViewerComponent/>
         </FullWidthContainer>
       </div>
 
-      <FullWidthContainer background={'#202121'}>
+      <FullWidthContainer background={'#202121'} isPaddingDisabled={false}>
         <Contact/>
       </FullWidthContainer>
     </div>

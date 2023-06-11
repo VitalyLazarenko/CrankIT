@@ -7,6 +7,7 @@ body {
 body {
   font-family: 'Montserrat', sans-serif;
   background: rgb(26, 33, 38);
+  overflow-x: hidden;
 }
 
 #__next {
