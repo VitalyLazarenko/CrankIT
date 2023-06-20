@@ -49,7 +49,7 @@ export const HomeViewerComponent:FC = () => {
         <BoxComponent position={[2, 0, 0]} name={'12'}/>
       </Canvas>
 
-      <div className={isShow ? styles.descriptionWrapper : styles.descriptionWrapperHide}>
+      <div className={styles.descriptionWrapper}>
         <div className={styles.headContainer}>
           <h1 className={isShow ? styles.title : styles.titleHide}>Our skills</h1>
           <div className={isShow ? styles.description : styles.descriptionHide}>

@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import React, {FC} from 'react'
 import Head from 'next/head'
 import {GetStaticProps} from 'next'
 import styles from './works.module.scss'
@@ -7,6 +7,7 @@ import {requestConstants} from '../../constants/request.constans'
 import Header from "../../components/Header.component/Header";
 import FullWidthContainer from "../../components/FullWidth.component/FullWidth";
 import Contact from "../../components/Contact.component/Contact";
+import {WorkViewerComponent} from "../../components/WorkViewer.component/WorkViewerComponent";
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(requestConstants.posts)
@@ -27,7 +28,7 @@ interface IPostsProps {
   posts: postType[]
 }
 
-const Posts: FC<IPostsProps> = ({posts}) => {
+const WorksPage: FC<IPostsProps> = ({posts}) => {
   return (
     <>
       <div className={styles.worksWrapper}>
@@ -38,21 +39,15 @@ const Posts: FC<IPostsProps> = ({posts}) => {
         <div>
           <Header mainBlock={false} mainPage={false}/>
           <FullWidthContainer background={'url(/assets/images/BG_Model.png)'} isPaddingDisabled={false}>
-            <div className={styles.mainScreenWrapper}>
-              <h1 className={styles.title}>Skills container</h1>
-            </div>
+            <WorkViewerComponent isLeft={true}/>
           </FullWidthContainer>
 
           <FullWidthContainer background={'url(/assets/images/BG_Model.png)'} isPaddingDisabled={false}>
-            <div className={styles.mainScreenWrapper}>
-              <h1 className={styles.title}>Skills container</h1>
-            </div>
+            <WorkViewerComponent isLeft={false}/>
           </FullWidthContainer>
 
           <FullWidthContainer background={'url(/assets/images/BG_Model.png)'} isPaddingDisabled={false}>
-            <div className={styles.mainScreenWrapper}>
-              <h1 className={styles.title}>Skills container</h1>
-            </div>
+            <WorkViewerComponent isLeft={true}/>
           </FullWidthContainer>
         </div>
         <FullWidthContainer background={'#202121'} isPaddingDisabled={false}>
@@ -63,4 +58,4 @@ const Posts: FC<IPostsProps> = ({posts}) => {
   )
 }
 
-export default Posts
+export default WorksPage

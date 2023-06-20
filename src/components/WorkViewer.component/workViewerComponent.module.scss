@@ -1,0 +1,194 @@
+@import "src/styles/variables";
+
+@media screen and (min-width: 1425px) {
+  .workViewerWrapper {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    position: relative;
+
+    .descriptionWrapper {
+      position: absolute;
+      box-sizing: border-box;
+      top: 0;
+      //left: 11.5%;
+
+      width: 30%;
+      height: 70%;
+      padding: 75px 25px 25px 25px;
+
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+
+      transform: translateY(0);
+      transition: all .5s ease;
+
+      &Hide {
+        @extend .descriptionWrapper;
+        transform: translateY(-200%);
+        transition: all .5s ease .5s;
+      }
+
+      &:before {
+        content: "";
+        width: 10%;
+        height: 70%;
+
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        z-index: 10;
+
+        opacity: 1;
+        transition: all 1s ease .5s !important;
+
+        transform: translateY(-50%) scaleY(1);
+        background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
+      }
+
+      &:after {
+        content: "";
+        width: 10%;
+        height: 70%;
+
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        z-index: 10;
+
+        opacity: 1;
+        transition: all 1s ease .5s !important;
+
+        transform: translateY(-50%) scaleY(1);
+        background: linear-gradient(180deg, #E5BE2C 12.5%, rgba(32, 33, 33, 0) 100%);
+      }
+
+      .headContainer {
+        overflow: hidden;
+
+        .title {
+          width: 100%;
+          //box-sizing: border-box;
+          margin: 30px 0;
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 50px;
+          line-height: 50px;
+          /* identical to box height */
+
+          letter-spacing: 0.03em;
+
+          /* Main Color */
+          color: #E5BE2C;
+          transform: translateY(0);
+          transition: all .5s ease .5s;
+
+          &Hide {
+            width: 100%;
+            font-size: 50px;
+            color: #E5BE2C;
+            transform: translateY(-200%);
+            transition: all .5s ease .5s;
+          }
+        }
+
+        .description {
+          width: 100%;
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 18px;
+          letter-spacing: 0.02em;
+
+          color: #FFFFFF;
+          transform: translateX(0);
+          transition: all .5s ease 1s;
+
+          &Hide {
+            width: 100%;
+            color: #FFFFFF;
+            font-size: 18px;
+            transform: translateX(-100%);
+            transition: all .5s ease .5s;
+          }
+        }
+      }
+
+      .skillsContainer {
+        overflow: hidden;
+
+        .skillTitle {
+          margin: 50px 0 30px 0;
+
+          /* Titel_Desktop_H2 */
+
+          //font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 35px;
+          line-height: 35px;
+          /* identical to box height */
+
+          letter-spacing: 0.02em;
+
+          /* Main Color */
+          color: #E5BE2C;
+
+          transform: translateY(0);
+          transition: all .5s ease 1.5s;
+
+          &Hide {
+            margin: 50px 0 30px 0;
+            font-size: 35px;
+            color: #E5BE2C;
+            transform: translateY(-300%);
+            transition: all .5s ease .5s;
+          }
+        }
+
+        .skillsList {
+          display: flex;
+          flex-direction: column;
+          overflow-y: auto;
+
+          transform: translateX(0);
+          transition: all .5s ease 2s;
+
+          &Hide {
+            @extend .skillsList;
+            width: 100%;
+            color: #FFFFFF;
+            font-size: 18px;
+            transform: translateX(-100%);
+            transition: all .4s ease .5s;
+          }
+
+          .listItem {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            //font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 18px;
+            /* identical to box height */
+
+            letter-spacing: 0.02em;
+
+            margin-bottom: 15px;
+            color: #FFFFFF;
+
+            .icon {
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
